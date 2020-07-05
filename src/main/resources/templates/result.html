@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>result</title>
+<body>
+
+	<h1>スマホ入力測定</h1>
+	<p th:text="'あなたの得点は ' + ${yourScore} + 'ポイントです'">あなたの得点は1ポイントです</p>
+	
+	<table>
+		<thead>
+		<tr>
+			<th>順位</th>
+			<th>ポイント</th>
+		</tr>
+		</thead>
+		<tr th:each="score, scoreStat : ${scoreList}">
+			<td th:text="${scoreStat.count} + '位'">1位</td>
+			<td th:text="${score.scoreInt} + 'ポイント'">5ポイント</td>
+		</tr>
+	</table>
+	
+	<a th:href="@{/index}">戻る</a>
+	
+</body>
+</html>

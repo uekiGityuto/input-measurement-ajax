@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>index</title>
+</head>
+<body>
+
+	<h1 id="title">スマホ入力測定</h1>
+	<p th:if="${param.error}" ><font color="red">TOPページにリダイレクトしました。</font></p>
+	<p>STARTボタンを押下すると単語が表示されます。<br>
+		表示された単語と同じ単語を下のエリアに入力し、送信ボタンをクリックして下さい。<br>
+		表示された単語と同じ単語を入力出来たら、ポイントが加算されます。<br>
+		挑戦時間は30秒間です。</p>
+	<p>STARTボタンを押して挑戦しましょう。</p>
+	
+	<button type="button" id="start">START</button>
+	
+	<form method="post">
+		<input type="text" name="task" id="task" readonly="readonly"><br>
+		<input type="text" name="answer" id="answer"><br>
+		<input type="hidden" name="score" id="score">
+		<button type="button" id="answerSend">送信</button>
+	</form>
+	
+	<p id="scoreDisplay">0ポイント</p>
+		
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script th:src="@{/js/ajax.js}"></script>
+</body>
+</html>
